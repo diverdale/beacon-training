@@ -1,0 +1,9 @@
+{
+  "id": "01-getting-your-bearings",
+  "title": "Getting Your Bearings",
+  "description": "Set up the Beacon codebase, write your first AI prompts, and start building the habit of checking output against reality.",
+  "estimatedMinutes": 60,
+  "exerciseTypes": ["prompt-and-evaluate"],
+  "order": 1,
+  "locked": false
+}

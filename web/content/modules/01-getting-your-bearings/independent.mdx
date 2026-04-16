@@ -1,0 +1,47 @@
+# Independent Exercise: Trace the Flow
+
+In the guided exercise, you asked the AI targeted questions with specific
+files. This time, you'll ask a broader question and do your own verification.
+
+**Do not look at the code first. Ask the AI, then verify.**
+
+---
+
+## Your Prompt
+
+Ask the AI this question:
+
+> Walk me through what happens when a new task is created in Beacon —
+> from the moment an HTTP POST request hits `/api/tasks` to the moment
+> a row appears in the database. Include every function call in order.
+
+---
+
+## Your Verification
+
+Now trace the flow yourself through the code:
+
+1. Open `app/routes/tasks.py` — find `create_task_route()`
+2. Find which service function it calls and open `app/services/task_service.py`
+3. Find `create_task()` and trace what it does with the database
+4. Check `app/models.py` — does `Task.__init__` do anything the AI mentioned?
+
+**Answer these questions based on what you find in the code:**
+
+- Did the AI correctly identify `create_task_route()` as the entry point?
+- Did it correctly name `create_task()` as the service function?
+- Did it describe what happens if `title` is missing?
+- Did it mention that `PUT /api/tasks/:id` and `DELETE /api/tasks/:id`
+  have **no tests**? (Check `tests/test_tasks.py` — count the test functions.)
+- Did it describe anything that doesn't exist in the code?
+
+---
+
+## What to Submit
+
+Write 2-3 sentences answering: **What did the AI get right, and what did
+it miss?** Be specific — name the function or file where you found the
+discrepancy.
+
+There's no single correct answer. The point is the habit: ask, then verify,
+then describe the gap.

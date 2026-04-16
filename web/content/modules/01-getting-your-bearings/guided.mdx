@@ -1,0 +1,82 @@
+# Guided Exercise: Your First Prompts on Beacon
+
+In this exercise you'll follow along step by step. The goal isn't to learn
+everything about Beacon — it's to build the read-and-verify habit from your
+very first prompt.
+
+**Open Beacon in Claude Code or Windsurf before you start.**
+
+---
+
+## Prompt 1: The overview
+
+Type this prompt exactly:
+
+> I'm new to this codebase. Looking at the README and `app/` directory,
+> give me a 4-bullet summary of what Beacon does and what its main
+> components are.
+
+**Before reading the AI's answer:** Open `README.md` and skim it yourself.
+It takes 30 seconds.
+
+**After reading the AI's answer:** Check each bullet.
+- Did it mention Flask, SQLAlchemy, and SQLite?
+- Did it identify the three resources: users, projects, tasks?
+- Did it say anything that isn't in the README or code?
+
+> **What to watch for:** The AI may confidently include things that aren't
+> there, or omit things that are. Both happen. The habit is to check, not
+> to accept.
+
+---
+
+## Prompt 2: The model relationships
+
+Type this prompt:
+
+> Looking only at `app/models.py`, explain the relationships between User,
+> Project, and Task. Which fields are foreign keys, and what do they
+> reference? Be precise.
+
+**Now open `app/models.py` yourself.** Verify:
+- Does Task have an `assignee_id` foreign key to `users.id`? ✓ or ✗
+- Does Task have a `project_id` foreign key to `projects.id`? ✓ or ✗
+- Did the AI mention `VALID_STATUSES` on the Task model?
+- Did the AI mention the `to_dict()` methods?
+
+Write down anything the AI got right and anything it missed or got wrong.
+You'll use this in the independent exercise.
+
+---
+
+## Prompt 3: The endpoints
+
+Type this prompt:
+
+> List every API endpoint defined in `app/routes/`. For each one, include
+> the HTTP method, the URL path, and one sentence describing what it does.
+
+**Now check `app/routes/tasks.py`, `app/routes/users.py`, and
+`app/routes/projects.py` yourself.**
+
+Count the endpoints in each file. Does the AI's list match?
+
+> **Common AI behavior here:** It may describe endpoints accurately but
+> miss one or two, especially if a file has more than 4-5 routes. It may
+> also describe what an endpoint _should_ do rather than what it actually
+> does (watch for this in module 3).
+
+---
+
+## Reflection
+
+Before moving on, answer these questions (you don't need to write them down
+— just think through them):
+
+1. In Prompt 2, did the AI mention anything that isn't in `models.py`?
+2. In Prompt 3, did the AI's endpoint list match your count exactly?
+3. How long did it take you to verify each answer against the code?
+
+The verification in this exercise probably took longer than the prompting.
+That ratio improves as you get faster at reading code — but the step never
+goes away.
