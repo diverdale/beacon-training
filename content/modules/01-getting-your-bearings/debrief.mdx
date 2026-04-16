@@ -1,0 +1,80 @@
+# Debrief: What You Were Looking For
+
+Here's what an experienced engineer would expect to find — and where most
+people are surprised.
+
+---
+
+## The flow prompt: what AI typically gets right
+
+The task creation flow is well-described by AI because it's a clean,
+linear path:
+
+1. `POST /api/tasks` → `create_task_route()` in `app/routes/tasks.py`
+2. Input validation: checks for `title`, returns 400 if missing
+3. Calls `create_task()` in `app/services/task_service.py`
+4. `create_task()` instantiates a `Task`, adds it to the session, commits
+
+AI tools handle this well. The code is short, linear, and follows a
+standard Flask/SQLAlchemy pattern. If the AI got this part right, that's
+expected — not impressive.
+
+---
+
+## What AI typically misses
+
+**The missing tests.** `tests/test_tasks.py` has 5 tests. Open it and
+count — there are no tests for `PUT /api/tasks/:id` or
+`DELETE /api/tasks/:id`. The AI will not mention this unless you
+specifically ask _"are there tests for every endpoint?"_
+
+This is a pattern you'll see repeatedly: AI describes what's there. It
+doesn't audit what's absent.
+
+**The `completed_at` field.** When you asked about the Task model,
+did the AI mention that `Task` has a `completed_at` timestamp? Some
+AI tools will describe the _columns they expect_ in a task model rather
+than the columns that are _actually there_. `completed_at` is real —
+but `updated_at` is not. If the AI listed `updated_at`, that was a
+hallucination.
+
+**The `VALID_STATUSES` tuple.** It exists on the Task model:
+`("todo", "in_progress", "done", "archived")`. But it's never enforced
+anywhere in the code. Did the AI tell you status is validated? Technically
+there's a tuple — but using an invalid status like `"banana"` will
+succeed. We'll come back to this in module 4.
+
+---
+
+## The ratio observation
+
+You probably noticed that verifying the AI's output took longer than
+writing the prompts. That's normal now. As you build familiarity with
+the Beacon codebase over the next modules, your verification speed will
+increase dramatically.
+
+The goal isn't to get the ratio to zero — it's to get it fast enough
+that verification feels automatic, not burdensome.
+
+---
+
+## Key takeaways
+
+1. **Specific prompts + specific files = verifiable answers.** Vague
+   prompts produce answers you can't check.
+
+2. **AI describes what's there. You have to ask about what's missing.**
+   Missing tests, missing validation, inconsistent error handling — these
+   require targeted questions.
+
+3. **Confident tone ≠ correct answer.** The AI doesn't hedge when it's
+   wrong. Your verification is the quality gate.
+
+---
+
+## Up next
+
+Module 2 is about context — specifically, how to give the AI enough
+context that it can be useful on tasks you wouldn't have tried before.
+The same Beacon codebase, but now you'll see how the quality of AI
+output changes dramatically based on how you frame your request.
