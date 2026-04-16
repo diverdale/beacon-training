@@ -1,0 +1,48 @@
+# Module 1: Getting Your Bearings
+
+## The Situation
+
+It's your first week at Beacon. The previous developer left two weeks ago,
+and the team needs someone to get up to speed fast. Your manager points you
+to a repo on GitHub and says: _"Get it running, understand what it does, and
+let us know if anything looks off."_
+
+You've heard your colleagues talking about Claude Code and Windsurf. Today
+you're going to use one of them to do what used to take a full afternoon —
+in about 60 minutes.
+
+## What You'll Do in This Module
+
+- Get the Beacon codebase running on your machine
+- Open it in Claude Code or Windsurf for the first time
+- Write your first AI prompts against a real codebase
+- Start building the habit of **checking AI output against the actual code**
+
+## Before You Start
+
+Make sure you have either **Claude Code** or **Windsurf** installed.
+
+**Claude Code:**
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+**Windsurf:** Download from [codeium.com/windsurf](https://codeium.com/windsurf)
+
+Then clone the Beacon repo and get it running:
+
+```bash
+git clone <beacon-repo-url>
+cd beacon
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python run.py
+```
+
+You should see Flask start on `http://127.0.0.1:5000`. If it doesn't,
+check that you activated the virtualenv.
+
+## Estimated Time
+
+60 minutes — 10 min setup, 15 min concept, 15 min guided exercise, 15 min
+independent exercise, 5 min debrief.
