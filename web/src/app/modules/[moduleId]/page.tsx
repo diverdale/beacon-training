@@ -2,6 +2,7 @@ import { getAllModuleIds, getModuleMeta, getModuleIndex } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ExerciseNav } from "@/components/ExerciseNav";
 import Link from "next/link";
+import remarkGfm from "remark-gfm";
 
 export async function generateStaticParams() {
   return getAllModuleIds().map((id) => ({ moduleId: id }));
@@ -25,7 +26,7 @@ export default async function ModulePage({ params }: PageProps) {
       <ExerciseNav moduleId={moduleId} currentSlug="index" />
 
       <article className="prose prose-gray max-w-none dark:prose-invert">
-        <MDXRemote source={content} />
+        <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </article>
 
       <div className="mt-10">

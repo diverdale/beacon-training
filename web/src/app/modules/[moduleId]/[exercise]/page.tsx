@@ -6,6 +6,7 @@ import {
   type ExerciseSlug,
 } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { ExerciseNav } from "@/components/ExerciseNav";
 import { MarkCompleteButton } from "@/components/MarkCompleteButton";
 import { DebriefGate } from "@/components/DebriefGate";
@@ -42,7 +43,7 @@ export default async function ExercisePage({ params }: PageProps) {
 
   const body = (
     <article className="prose prose-gray max-w-none dark:prose-invert">
-      <MDXRemote source={content} />
+      <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
     </article>
   );
 
