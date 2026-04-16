@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <div className="mb-10">
         <h1 className="text-2xl font-bold mb-2">AI Training</h1>
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
           Claude Code & Windsurf — hands-on exercises with real codebases
         </p>
       </div>

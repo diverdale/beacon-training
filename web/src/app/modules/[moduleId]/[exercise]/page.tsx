@@ -41,14 +41,14 @@ export default async function ExercisePage({ params }: PageProps) {
   const nextHref = getNextExercise(slug, moduleId);
 
   const body = (
-    <article className="prose prose-gray max-w-none">
+    <article className="prose prose-gray max-w-none dark:prose-invert">
       <MDXRemote source={content} />
     </article>
   );
 
   return (
     <main>
-      <Link href={`/modules/${moduleId}`} className="text-sm text-gray-400 hover:text-gray-700 mb-6 inline-block">
+      <Link href={`/modules/${moduleId}`} className="text-sm text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mb-6 inline-block">
         ← {EXERCISE_LABELS[slug] ? moduleId.split("-").slice(1).join(" ") : "Module"}
       </Link>
 

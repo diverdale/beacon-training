@@ -26,10 +26,10 @@ export function MarkCompleteButton({ moduleId, exerciseSlug, nextHref }: MarkCom
 
   if (done) {
     return (
-      <p className="text-sm text-gray-400 mt-8">
+      <p className="text-sm text-gray-400 dark:text-gray-500 mt-8">
         ✓ Marked complete{nextHref ? " — " : ""}
         {nextHref && (
-          <a href={nextHref} className="underline text-gray-600">
+          <a href={nextHref} className="underline text-gray-600 dark:text-gray-300">
             Continue
           </a>
         )}
@@ -40,7 +40,7 @@ export function MarkCompleteButton({ moduleId, exerciseSlug, nextHref }: MarkCom
   return (
     <button
       onClick={handleClick}
-      className="mt-8 px-4 py-2 bg-gray-900 text-white text-sm rounded hover:bg-gray-700 transition-colors"
+      className="mt-8 px-4 py-2 bg-gray-900 text-white text-sm rounded hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300 transition-colors"
     >
       Mark complete
     </button>

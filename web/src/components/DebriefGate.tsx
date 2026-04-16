@@ -18,13 +18,13 @@ export function DebriefGate({ moduleId, children }: DebriefGateProps) {
 
   if (!unlocked) {
     return (
-      <div className="border border-gray-200 rounded-lg p-8 text-center">
-        <p className="text-gray-500 text-sm">
+      <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center">
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
           Complete the independent exercise to unlock the debrief.
         </p>
         <a
           href={`/modules/${moduleId}/independent`}
-          className="mt-3 inline-block text-sm underline text-gray-700"
+          className="mt-3 inline-block text-sm underline text-gray-700 dark:text-gray-300"
         >
           Go to independent exercise →
         </a>

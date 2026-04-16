@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistMono.variable} font-mono antialiased bg-white text-gray-900`}>
+      <body className={`${geistMono.variable} font-mono antialiased bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100`}>
         <div className="max-w-3xl mx-auto px-6 py-10">
           {children}
         </div>
