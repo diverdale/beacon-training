@@ -1,0 +1,65 @@
+# Concept: What AI Coding Tools Actually Do
+
+Before you write your first prompt, it helps to know what you're actually
+working with.
+
+## The context window is everything
+
+Claude Code and Windsurf are not magic. They don't "know" your codebase —
+they know what's in their **context window**: the files you've opened, the
+files they've read, and the conversation so far.
+
+This means:
+- If you haven't shown the AI a file, it can't tell you what's in it
+- If you ask a vague question, it answers based on whatever context it has
+- If the context is wrong or incomplete, the answer will be too
+
+## Specificity matters
+
+Compare these two prompts:
+
+**Vague:**
+> Explain this codebase.
+
+The AI will give you a generic summary. It might be accurate. It might
+hallucinate structure that doesn't exist. You have no way to tell without
+checking.
+
+**Specific:**
+> Looking at `app/models.py`, explain the relationships between the User,
+> Project, and Task models. Be precise about which fields are foreign keys
+> and what they reference.
+
+The AI has a specific file to work from. Its answer is verifiable. If it
+gets something wrong, you'll catch it.
+
+## What AI describes vs. what code _is_
+
+This is the most important thing to internalize before Module 4:
+
+**AI describes what code does. It doesn't tell you what code is missing,
+broken, or inconsistent.**
+
+Ask the AI to describe how `GET /api/tasks/:id` works. It'll give you an
+accurate description of the happy path. It won't volunteer that the route
+is missing a null check. It won't notice that the error handling is
+different from every other route in the project.
+
+You have to ask the right questions — and then verify the answers.
+
+## Good vs. bad: a comparison
+
+| | Bad prompt | Better prompt |
+|---|---|---|
+| **Too vague** | "Explain this project" | "What does `app/services/task_service.py` do? List each function and its purpose." |
+| **No verification hook** | "Is the API correct?" | "List all endpoints in `app/routes/tasks.py`. Then I'll compare against the README." |
+| **Trusting output** | Accept first answer | Ask, then check against the actual file |
+
+## The habit to build
+
+Every time the AI tells you something about code:
+1. Find the relevant file
+2. Read the relevant lines
+3. Ask: does the AI's description match what I see?
+
+This module is practice for that habit.
